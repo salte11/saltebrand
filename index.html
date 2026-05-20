@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaltE Brand — East Coast Lifestyle Apparel</title>
+<meta name="description" content="East Coast inspired apparel for ocean souls and coastal dreamers. Shop tees, hats and gear for all 14 East Coast states.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--navy:#0b1032;--navy-mid:#131a4a;--navy-light:#1a2460;--teal:#2ec4b6;--teal-dark:#1aa89c;--gold:#c9993a;--gold-light:#e8b84b;--sand:#f2ede3;--white:#fafcff;--grey:#8a96a8;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden;}
+nav{background:rgba(11,16,50,0.97);padding:0.9rem 2.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,153,58,0.15);position:sticky;top:0;z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-wordmark{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.1em;color:#fff;}
+.nav-wordmark span{color:var(--teal);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-shop{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:0.5rem 1.3rem;border-radius:3px;text-decoration:none;}
+.hero{min-height:92vh;background:var(--navy);position:relative;display:flex;align-items:center;overflow:hidden;padding:5rem 3rem 4rem;}
+.hero-bg{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:600px;height:600px;opacity:0.05;animation:slowspin 120s linear infinite;}
+@keyframes slowspin{from{transform:translateY(-50%) rotate(0deg);}to{transform:translateY(-50%) rotate(360deg);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-content{position:relative;z-index:2;max-width:520px;animation:fadeUp 0.9s ease both;}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:8px;}
+.eyebrow-line{width:28px;height:1px;background:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:700;color:#fff;line-height:1.12;margin-bottom:1.25rem;}
+.hero h1 em{color:var(--gold-light);font-style:italic;display:block;}
+.hero-body{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;max-width:420px;margin-bottom:2rem;}
+.btns{display:flex;gap:0.875rem;flex-wrap:wrap;}
+.btn-gold{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;display:inline-block;transition:all 0.2s;border:none;cursor:pointer;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-ghost{font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:transparent;color:#fff;padding:0.85rem 2rem;border-radius:3px;border:1px solid rgba(255,255,255,0.25);text-decoration:none;display:inline-block;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-badge{position:absolute;right:3rem;bottom:3rem;width:80px;height:80px;border-radius:50%;border:1px solid rgba(201,153,58,0.4);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.hero-badge-num{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold);line-height:1;}
+.hero-badge-label{font-family:'Barlow Condensed',sans-serif;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:3px;line-height:1.3;}
+.trust{background:var(--navy-light);border-top:1px solid rgba(201,153,58,0.12);border-bottom:1px solid rgba(201,153,58,0.12);padding:0.9rem 2rem;}
+.trust-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:1rem;}
+.trust-item{display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.trust-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.5rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.2;}
+.section-title em{color:var(--teal);font-style:italic;}
+.products{background:var(--navy-mid);padding:5rem 2rem;}
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;max-width:960px;margin:0 auto 2.5rem;}
+.view-all{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);text-decoration:none;}
+.view-all:hover{color:var(--gold-light);}
+.products-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;}
+.product-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden;cursor:pointer;transition:all 0.25s;}
+.product-card:hover{transform:translateY(-5px);border-color:rgba(201,153,58,0.3);}
+.product-card:hover .p-overlay{opacity:1;}
+.p-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;}
+.p-badge{position:absolute;top:10px;left:10px;font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.badge-best{background:var(--gold);color:var(--navy);}
+.badge-new{background:var(--teal);color:var(--navy);}
+.p-overlay{position:absolute;inset:0;background:rgba(11,16,50,0.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
+.p-overlay-btn{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--gold);color:var(--navy);border:none;padding:0.55rem 1.2rem;border-radius:3px;cursor:pointer;}
+.p-info{padding:0.85rem 1rem;border-top:1px solid rgba(255,255,255,0.06);}
+.p-name{font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:2px;}
+.p-price{font-size:0.85rem;color:var(--gold);font-weight:500;}
+.p-quickadd{width:100%;margin-top:0.6rem;font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.1);padding:0.5rem;border-radius:3px;cursor:pointer;transition:all 0.2s;}
+.p-quickadd:hover{border-color:var(--gold);color:var(--gold);}
+.story-strip{background:var(--sand);padding:6rem 2rem;}
+.story-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.story-h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:1.25rem;}
+.story-body{font-size:0.95rem;font-weight:300;color:var(--navy-light);line-height:1.9;margin-bottom:1rem;opacity:0.8;}
+.story-pull{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--navy);border-left:3px solid var(--gold);padding-left:1.1rem;margin:1.5rem 0;line-height:1.5;}
+.story-compass{display:flex;justify-content:center;align-items:center;}
+.community{background:#111827;padding:5rem 2rem;}
+.community-header{text-align:center;margin-bottom:0.75rem;}
+.community-sub{text-align:center;font-size:0.9rem;color:rgba(255,255,255,0.35);margin-bottom:2.5rem;font-weight:300;line-height:1.7;}
+.crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:960px;margin:0 auto 2rem;}
+.crew-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:8px;overflow:hidden;}
+.crew-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;}
+.crew-footer{padding:0.85rem 1rem;display:flex;align-items:center;gap:10px;}
+.crew-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;flex-shrink:0;}
+.crew-handle{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;color:#fff;}
+.crew-journey{font-size:0.72rem;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:4px;margin-top:1px;font-family:'Barlow Condensed',sans-serif;}
+.crew-arrow{color:var(--gold);}
+.crew-follow{text-align:center;}
+.crew-follow a{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);text-decoration:none;}
+.email-band{background:var(--navy-light);padding:4rem 2rem;text-align:center;}
+.email-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:block;}
+.email-h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.email-sub{font-size:0.9rem;color:rgba(255,255,255,0.4);margin-bottom:1.75rem;font-weight:300;line-height:1.7;}
+.email-form{display:flex;gap:0.5rem;max-width:400px;margin:0 auto 1rem;}
+.email-input{flex:1;font-family:'Barlow',sans-serif;font-size:0.85rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:3px;color:#fff;outline:none;}
+.email-input::placeholder{color:rgba(255,255,255,0.3);}
+.email-input:focus{border-color:var(--gold);}
+.email-submit{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--gold);color:var(--navy);border:none;padding:0.75rem 1.25rem;border-radius:3px;cursor:pointer;white-space:nowrap;}
+.email-note{font-size:0.72rem;color:rgba(255,255,255,0.2);font-family:'Barlow Condensed',sans-serif;letter-spacing:0.08em;}
+footer{background:#060b1e;padding:2.5rem 2rem;}
+.footer-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.25rem;}
+.footer-brand{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.1em;color:rgba(255,255,255,0.4);}
+.footer-brand span{color:var(--teal);}
+.footer-links{display:flex;gap:1.75rem;list-style:none;}
+.footer-links a{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-socials{display:flex;gap:1.25rem;}
+.footer-socials a{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;letter-spacing:0.1em;color:rgba(255,255,255,0.25);text-decoration:none;}
+.footer-socials a:hover{color:var(--teal);}
+.footer-bottom{max-width:960px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;}
+.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.15);font-family:'Barlow',sans-serif;}
+@media(max-width:768px){.story-inner{grid-template-columns:1fr;gap:2rem;}.crew-grid{grid-template-columns:1fr;}.hero{padding:5rem 1.5rem 3rem;}nav{padding:0.9rem 1.25rem;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="14" stroke="#8a96a8" stroke-width="0.6" opacity="0.5"/><polygon points="17,3 19,15 17,17 15,15" fill="#c9993a" opacity="0.9"/><polygon points="17,31 19,19 17,17 15,19" fill="#8a96a8" opacity="0.4"/><polygon points="3,17 15,15 17,17 15,19" fill="#8a96a8" opacity="0.4"/><polygon points="31,17 19,15 17,17 19,19" fill="#2ec4b6" opacity="0.9"/><circle cx="17" cy="17" r="2" fill="#2ec4b6"/></svg>
+    <span class="nav-wordmark">Salt<span>E</span> Brand</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="shop.html#states">Wear It</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="shop.html" class="nav-shop">Shop Now</a>
+</nav>
+
+<section class="hero">
+  <svg class="hero-bg" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="200" r="180" stroke="white" stroke-width="1"/><circle cx="200" cy="200" r="130" stroke="white" stroke-width="0.5"/><polygon points="200,20 208,192 200,200 192,192" fill="white"/><polygon points="200,380 208,208 200,200 192,208" fill="white" opacity="0.3"/><polygon points="20,200 192,192 200,200 192,208" fill="white" opacity="0.3"/><polygon points="380,200 208,192 200,200 208,208" fill="white"/><line x1="200" y1="20" x2="200" y2="380" stroke="white" stroke-width="0.4" opacity="0.2"/><line x1="20" y1="200" x2="380" y2="200" stroke="white" stroke-width="0.4" opacity="0.2"/><text x="192" y="14" fill="white" font-size="11" font-family="serif" opacity="0.4">N</text><text x="192" y="396" fill="white" font-size="11" font-family="serif" opacity="0.25">S</text><text x="4" y="204" fill="white" font-size="11" font-family="serif" opacity="0.25">W</text><text x="382" y="204" fill="white" font-size="13" font-family="serif" font-weight="bold" opacity="0.7">E</text></svg>
+  <div class="hero-content">
+    <p class="eyebrow"><span class="eyebrow-line"></span>East Coast Lifestyle Brand</p>
+    <h1>East Coast Made.<em>Built for Wherever Life Takes You.</em></h1>
+    <p class="hero-body">SaltE Brand connects you to the feeling of home — the salt air, the shore, the warmth of the East Coast. Wear it wherever the compass points.</p>
+    <div class="btns">
+      <a href="shop.html" class="btn-gold">Shop the Collection</a>
+      <a href="about.html" class="btn-ghost">Read Our Story →</a>
+    </div>
+  </div>
+  <div class="hero-badge"><span class="hero-badge-num">100%</span><span class="hero-badge-label">Made to Order</span></div>
+</section>
+
+<div class="trust"><div class="trust-inner"><div class="trust-item"><span class="trust-dot"></span>Free US shipping $50+</div><div class="trust-item"><span class="trust-dot"></span>Made just for you</div><div class="trust-item"><span class="trust-dot"></span>East Coast proud since 2021</div><div class="trust-item"><span class="trust-dot"></span>Loved by the crew</div></div></div>
+
+<section class="products" id="products">
+  <div class="section-header">
+    <div><span class="section-label">New &amp; Featured</span><h2 class="section-title" style="color:#fff;">Wear the <em>Vibe</em></h2></div>
+    <a href="shop.html" class="view-all">View all →</a>
+  </div>
+  <div class="products-grid">
+    <div class="product-card"><div class="p-img" style="background:#0f1a3e;"><span class="p-badge badge-best">Bestseller</span><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="35" r="22" stroke="#2ec4b6" stroke-width="0.8" opacity="0.35"/><polygon points="35,13 37.5,32 35,35 32.5,32" fill="#c9993a" opacity="0.85"/><polygon points="35,57 37.5,38 35,35 32.5,38" fill="#8a96a8" opacity="0.3"/><polygon points="13,35 32,32.5 35,35 32,37.5" fill="#8a96a8" opacity="0.3"/><polygon points="57,35 38,32.5 35,35 38,37.5" fill="#2ec4b6" opacity="0.6"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/white-short-sleeve-t-shirt'">Quick View</button></div></div><div class="p-info"><p class="p-name">Signature T-Shirt</p><p class="p-price">$24.95</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/white-short-sleeve-t-shirt'">Shop Now</button></div></div>
+    <div class="product-card"><div class="p-img" style="background:#0c1830;"><span class="p-badge badge-new">New</span><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="15" y="22" width="40" height="30" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="35" cy="37" r="10" stroke="#c9993a" stroke-width="0.7" opacity="0.45"/><polygon points="35,27 36.5,34 35,37 33.5,34" fill="#c9993a" opacity="0.7"/><polygon points="35,47 36.5,40 35,37 33.5,40" fill="rgba(255,255,255,0.2)"/><polygon points="25,37 33.5,34.5 35,37 33.5,39.5" fill="rgba(255,255,255,0.2)"/><polygon points="45,37 36.5,34.5 35,37 36.5,39.5" fill="#2ec4b6" opacity="0.5"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/salte-jacket'">Quick View</button></div></div><div class="p-info"><p class="p-name">SaltE Jacket</p><p class="p-price">$69.00</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/salte-jacket'">Shop Now</button></div></div>
+    <div class="product-card"><div class="p-img" style="background:#f0ebe0;"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="30" rx="18" ry="9" fill="rgba(11,16,50,0.06)" stroke="rgba(11,16,50,0.1)" stroke-width="0.5"/><rect x="17" y="30" width="36" height="6" rx="1" fill="rgba(11,16,50,0.05)"/><circle cx="35" cy="28" r="7" stroke="#0b1032" stroke-width="0.6" opacity="0.18"/><polygon points="35,21 36,26 35,28 34,26" fill="#c9993a" opacity="0.55"/><polygon points="42,28 36,27.2 35,28 36,28.8" fill="#0b1032" opacity="0.22"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/trucker-cap'">Quick View</button></div></div><div class="p-info"><p class="p-name">Trucker Cap</p><p class="p-price">$28.00</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/trucker-cap'">Shop Now</button></div></div>
+    <div class="product-card"><div class="p-img" style="background:#1a4060;"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="26" rx="14" ry="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/><rect x="21" y="39" width="28" height="8" rx="4" fill="rgba(255,255,255,0.05)"/><circle cx="35" cy="25" r="6" stroke="#c9993a" stroke-width="0.6" opacity="0.4"/><polygon points="35,19 36,23 35,25 34,23" fill="#c9993a" opacity="0.7"/><polygon points="41,25 36,24.2 35,25 36,25.8" fill="#2ec4b6" opacity="0.5"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/travel-mug-with-a-handle'">Quick View</button></div></div><div class="p-info"><p class="p-name">Travel Mug</p><p class="p-price">$34.95</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/travel-mug-with-a-handle'">Shop Now</button></div></div>
+  </div>
+</section>
+
+<section class="story-strip">
+  <div class="story-inner">
+    <div>
+      <span class="section-label">Our Story</span>
+      <h2 class="story-h2">We all have a place that lives in us.</h2>
+      <p class="story-body">For me, it's the East Coast. I grew up just outside of Boston, but life took me across the country. No matter where I landed, the salt air never left me.</p>
+      <blockquote class="story-pull">"You can move away from the East Coast. It never moves away from you."</blockquote>
+      <p class="story-body">SaltE Brand was built for everyone who carries the coast with them — in their chest, in their memories, in the way they still talk about "back home."</p>
+      <a href="about.html" class="btn-gold" style="margin-top:0.5rem;">Read the Full Story →</a>
+    </div>
+    <div class="story-compass">
+      <svg width="260" height="260" viewBox="0 0 260 260" fill="none"><circle cx="130" cy="130" r="110" stroke="#c9993a" stroke-width="0.5" opacity="0.2"/><circle cx="130" cy="130" r="80" stroke="#8a96a8" stroke-width="0.4" opacity="0.2"/><circle cx="130" cy="130" r="10" stroke="#c9993a" stroke-width="0.8" opacity="0.5"/><circle cx="130" cy="130" r="3.5" fill="#c9993a" opacity="0.8"/><polygon points="130,20 134,124 130,130 126,124" fill="#c9993a" opacity="0.85"/><polygon points="130,240 134,136 130,130 126,136" fill="#8a96a8" opacity="0.35"/><polygon points="20,130 124,126 130,130 124,134" fill="#8a96a8" opacity="0.35"/><polygon points="240,130 136,126 130,130 136,134" fill="#2ec4b6" opacity="0.75"/><text x="125" y="13" fill="#8a96a8" font-size="10" font-family="Georgia,serif" opacity="0.5">N</text><text x="125" y="254" fill="#8a96a8" font-size="10" font-family="Georgia,serif" opacity="0.3">S</text><text x="6" y="134" fill="#8a96a8" font-size="10" font-family="Georgia,serif" opacity="0.3">W</text><text x="242" y="134" fill="#c9993a" font-size="13" font-family="Georgia,serif" font-weight="bold" opacity="0.9">E</text></svg>
+    </div>
+  </div>
+</section>
+
+<section class="community">
+  <div class="community-header">
+    <span class="section-label" style="display:block;text-align:center;margin-bottom:0.5rem;">The SaltE Crew</span>
+    <h2 class="section-title" style="color:#fff;text-align:center;">Real People. <em>Real Vibes.</em></h2>
+  </div>
+  <p class="community-sub">Representing the East Coast wherever life takes them.<br>Tag us @saltebrand or email your photo to be featured.</p>
+  <div class="crew-grid">
+    <div class="crew-card"><div class="crew-img" style="background:#1a2535;"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" opacity="0.15"><circle cx="20" cy="16" r="7" stroke="white" stroke-width="1.5"/><path d="M6 36c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="white" stroke-width="1.5"/></svg></div><div class="crew-footer"><div class="crew-avatar" style="background:rgba(46,196,182,0.15);color:#2ec4b6;">JM</div><div><div class="crew-handle">@j_maine</div><div class="crew-journey"><span>Portland, ME</span><span class="crew-arrow">→</span><span>Denver, CO</span></div></div></div></div>
+    <div class="crew-card"><div class="crew-img" style="background:#1a2030;"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" opacity="0.15"><circle cx="20" cy="16" r="7" stroke="white" stroke-width="1.5"/><path d="M6 36c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="white" stroke-width="1.5"/></svg></div><div class="crew-footer"><div class="crew-avatar" style="background:rgba(201,153,58,0.15);color:#c9993a;">SB</div><div><div class="crew-handle">@saltybri</div><div class="crew-journey"><span>Cape Cod, MA</span><span class="crew-arrow">→</span><span>Austin, TX</span></div></div></div></div>
+    <div class="crew-card"><div class="crew-img" style="background:#0f1a28;"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" opacity="0.15"><circle cx="20" cy="16" r="7" stroke="white" stroke-width="1.5"/><path d="M6 36c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="white" stroke-width="1.5"/></svg></div><div class="crew-footer"><div class="crew-avatar" style="background:rgba(46,196,182,0.12);color:#2ec4b6;">TC</div><div><div class="crew-handle">@thecrew_nj</div><div class="crew-journey"><span>Jersey Shore</span><span class="crew-arrow">→</span><span>Nashville, TN</span></div></div></div></div>
+  </div>
+  <div class="crew-follow"><a href="https://instagram.com/saltebrand" target="_blank">Follow @saltebrand for more →</a></div>
+</section>
+
+<div class="email-band">
+  <span class="email-eyebrow">⚓ Join the East Coast Crew</span>
+  <h2 class="email-h2">Get 10% Off Your First Order</h2>
+  <p class="email-sub">Salt air stories, new drops, and East Coast vibes delivered to your inbox.<br>No spam. Just the good stuff.</p>
+  <div class="email-form"><input class="email-input" type="email" placeholder="your@email.com" id="ei"><button class="email-submit" onclick="var v=document.getElementById('ei').value;if(v&&v.includes('@')){document.getElementById('ei').value='';alert('You\'re in! Check your inbox for your 10% off code.');}">Claim 10% Off</button></div>
+  <p class="email-note">By subscribing you agree to receive email from SaltE Brand. Unsubscribe anytime.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Salt<span>E</span> Brand</span>
+    <ul class="footer-links"><li><a href="shop.html">Shop</a></li><li><a href="about.html">Our Story</a></li><li><a href="shop.html#states">State Collection</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <div class="footer-socials"><a href="https://instagram.com/saltebrand" target="_blank">Instagram</a><a href="https://www.pinterest.com/saltebrand" target="_blank">Pinterest</a><a href="http://www.facebook.com/saltebrand" target="_blank">Facebook</a></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">SaltE Brand © 2025 — East Coast Inspired Apparel. All rights reserved.</span><span class="footer-copy">Always pointing East.</span></div>
+</footer>
+</body>
+</html>

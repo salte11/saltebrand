@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — SaltE Brand</title>
+  <meta name="description" content="Shop SaltE Brand — East Coast inspired tees, hats, jackets, mugs and more. All 14 East Coast states available.">
+  
+  <style>
+    .shop-hero { background: var(--navy); padding: 6rem 2rem 4rem; text-align: center; }
+    .shop-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+    .shop-hero h1 em { color: var(--gold-light); font-style: italic; }
+    .shop-hero p { font-size: 1rem; color: rgba(255,255,255,0.45); font-weight: 300; }
+
+    .shop-body { background: var(--sand); padding: 4rem 2rem; }
+    .shop-inner { max-width: 960px; margin: 0 auto; }
+    .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.5rem; }
+
+    .product-card { background: #fff; border-radius: 6px; overflow: hidden; cursor: pointer; transition: all 0.25s; position: relative; border: 1px solid rgba(0,0,0,0.06); }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(11,16,50,0.1); }
+    .product-card:hover .p-overlay { opacity: 1; }
+    .p-img { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+    .p-badge { position: absolute; top: 10px; left: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; }
+    .badge-best { background: var(--gold); color: var(--navy); }
+    .badge-new { background: var(--teal); color: var(--navy); }
+    .p-overlay { position: absolute; inset: 0; background: rgba(11,16,50,0.55); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
+    .p-overlay-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; background: var(--gold); color: var(--navy); border: none; padding: 0.55rem 1.2rem; border-radius: 3px; cursor: pointer; }
+    .p-info { padding: 0.9rem 1rem; border-top: 2px solid var(--sand); }
+    .p-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+    .p-price { font-size: 0.88rem; color: var(--gold); font-weight: 500; }
+    .p-quickadd { width: 100%; margin-top: 0.6rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; background: var(--navy); color: #fff; border: none; padding: 0.55rem; border-radius: 3px; cursor: pointer; transition: background 0.2s; }
+    .p-quickadd:hover { background: var(--gold); color: var(--navy); }
+
+    /* STATE SELECTOR */
+    .states-section { background: var(--navy); padding: 5rem 2rem; }
+    .states-inner { max-width: 960px; margin: 0 auto; }
+    .states-header { text-align: center; margin-bottom: 1rem; }
+    .states-sub { text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.35); margin-bottom: 0.75rem; font-weight: 300; }
+    .legend { display: flex; gap: 1.25rem; justify-content: center; margin-bottom: 1.5rem; }
+    .leg { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: rgba(255,255,255,0.35); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.08em; }
+    .leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .state-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 8px; margin-bottom: 1.5rem; }
+    .sb { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 10px 4px 8px; cursor: pointer; text-align: center; transition: all 0.18s; }
+    .sb:hover { background: rgba(201,153,58,0.1); border-color: rgba(201,153,58,0.4); }
+    .sb.active { background: rgba(201,153,58,0.15); border-color: var(--gold); border-width: 2px; }
+    .sb.is-pre { border-color: rgba(201,153,58,0.3); }
+    .sb-a { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: #fff; display: block; }
+    .sb-n { font-size: 8px; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; display: block; }
+    .sb.active .sb-n, .sb.is-pre .sb-n { color: var(--gold); }
+    .state-result { border: 1px solid rgba(201,153,58,0.15); border-radius: 8px; background: rgba(255,255,255,0.02); padding: 1.5rem; min-height: 80px; }
+    .state-placeholder { text-align: center; padding: 1.5rem; color: rgba(255,255,255,0.22); font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .sr-head { display: flex; align-items: center; gap: 12px; margin-bottom: 1.1rem; }
+    .sr-circle { width: 44px; height: 44px; background: rgba(201,153,58,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .sr-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
+    .sr-sub { font-size: 0.72rem; color: rgba(255,255,255,0.3); margin-top: 2px; letter-spacing: 0.06em; }
+    .state-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sop { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem; }
+    .ob { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 7px; }
+    .ob-g { background: rgba(201,153,58,0.2); color: var(--gold); }
+    .ob-t { background: rgba(46,196,182,0.15); color: var(--teal); }
+    .ot { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .od { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.5; margin-bottom: 8px; font-weight: 300; }
+    .op { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .op span { font-size: 0.72rem; color: rgba(255,255,255,0.28); font-weight: 400; }
+    .obtn { display: block; width: 100%; padding: 8px; border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.15s; }
+    .obtn-g { background: var(--gold); color: var(--navy); }
+    .obtn-g:hover { background: var(--gold-light); }
+    .obtn-t { background: transparent; color: var(--teal); border: 1px solid rgba(46,196,182,0.3); }
+    .obtn-t:hover { background: rgba(46,196,182,0.1); border-color: var(--teal); }
+    .states-note { text-align: center; font-size: 0.72rem; color: rgba(255,255,255,0.18); margin-top: 1rem; letter-spacing: 0.06em; font-family: 'Barlow Condensed', sans-serif; }
+
+    @media (max-width: 600px) {
+      .state-grid { grid-template-columns: repeat(4,1fr); }
+      .state-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="shop-hero">
+  <span class="section-label">The Collection</span>
+  <h1>Wear the <em>Vibe</em></h1>
+  <p>East Coast inspired gear for ocean souls. Made to order, shipped to you.</p>
+</div>
+
+<div id="trust-placeholder"></div>
+
+<section class="shop-body">
+  <div class="shop-inner">
+    <div class="shop-grid">
+
+      <div class="product-card">
+        <div class="p-img" style="background:#0f1a3e;"><span class="p-badge badge-best">Bestseller</span>
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="35" r="22" stroke="#2ec4b6" stroke-width="0.8" opacity="0.35"/><polygon points="35,13 37.5,32 35,35 32.5,32" fill="#c9993a" opacity="0.85"/><polygon points="35,57 37.5,38 35,35 32.5,38" fill="#8a96a8" opacity="0.3"/><polygon points="13,35 32,32.5 35,35 32,37.5" fill="#8a96a8" opacity="0.3"/><polygon points="57,35 38,32.5 35,35 38,37.5" fill="#2ec4b6" opacity="0.6"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/white-short-sleeve-t-shirt','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">Signature T-Shirt Short Sleeve</p><p class="p-price">$24.99</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/white-short-sleeve-t-shirt','_blank')">Shop Now</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="p-img" style="background:#0d1635;">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="35" r="22" stroke="#c9993a" stroke-width="0.8" opacity="0.3"/><polygon points="35,13 37.5,32 35,35 32.5,32" fill="#c9993a" opacity="0.7"/><polygon points="35,57 37.5,38 35,35 32.5,38" fill="#8a96a8" opacity="0.25"/><polygon points="13,35 32,32.5 35,35 32,37.5" fill="#8a96a8" opacity="0.25"/><polygon points="57,35 38,32.5 35,35 38,37.5" fill="#2ec4b6" opacity="0.5"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/signature-logo-long-sleeve','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">Signature T-Shirt Long Sleeve</p><p class="p-price">$45.00</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/signature-logo-long-sleeve','_blank')">Shop Now</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="p-img" style="background:#0c1830;"><span class="p-badge badge-new">New</span>
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="15" y="22" width="40" height="30" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="35" cy="37" r="10" stroke="#c9993a" stroke-width="0.7" opacity="0.45"/><polygon points="35,27 36.5,34 35,37 33.5,34" fill="#c9993a" opacity="0.7"/><polygon points="35,47 36.5,40 35,37 33.5,40" fill="rgba(255,255,255,0.2)"/><polygon points="25,37 33.5,34.5 35,37 33.5,39.5" fill="rgba(255,255,255,0.2)"/><polygon points="45,37 36.5,34.5 35,37 36.5,39.5" fill="#2ec4b6" opacity="0.5"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/salte-jacket','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">SaltE Jacket</p><p class="p-price">$69.00</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/salte-jacket','_blank')">Shop Now</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="p-img" style="background:#091530;">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><path d="M20 28 Q35 18 50 28 L47 52 Q35 60 23 52 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="35" cy="38" r="10" stroke="#2ec4b6" stroke-width="0.7" opacity="0.4"/><polygon points="35,28 36.5,35 35,38 33.5,35" fill="#c9993a" opacity="0.7"/><polygon points="35,48 36.5,41 35,38 33.5,41" fill="rgba(255,255,255,0.2)"/><polygon points="25,38 33.5,35.5 35,38 33.5,40.5" fill="rgba(255,255,255,0.2)"/><polygon points="45,38 36.5,35.5 35,38 36.5,40.5" fill="#2ec4b6" opacity="0.5"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/salte-vest','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">SaltE Vest</p><p class="p-price">$59.00</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/salte-vest','_blank')">Shop Now</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="p-img" style="background:#f0ebe0;">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="30" rx="18" ry="9" fill="rgba(11,16,50,0.06)" stroke="rgba(11,16,50,0.1)" stroke-width="0.5"/><rect x="17" y="30" width="36" height="6" rx="1" fill="rgba(11,16,50,0.05)" stroke="rgba(11,16,50,0.08)" stroke-width="0.5"/><circle cx="35" cy="28" r="7" stroke="#0b1032" stroke-width="0.6" opacity="0.18"/><polygon points="35,21 36,26 35,28 34,26" fill="#c9993a" opacity="0.55"/><polygon points="35,35 36,30 35,28 34,30" fill="#0b1032" opacity="0.12"/><polygon points="28,28 34,27.2 35,28 34,28.8" fill="#0b1032" opacity="0.12"/><polygon points="42,28 36,27.2 35,28 36,28.8" fill="#0b1032" opacity="0.22"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/trucker-cap','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">Trucker Cap</p><p class="p-price">$28.00</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/trucker-cap','_blank')">Shop Now</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="p-img" style="background:#1a4060;">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="26" rx="14" ry="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/><rect x="21" y="39" width="28" height="8" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/><circle cx="35" cy="25" r="6" stroke="#c9993a" stroke-width="0.6" opacity="0.4"/><polygon points="35,19 36,23 35,25 34,23" fill="#c9993a" opacity="0.7"/><polygon points="35,31 36,27 35,25 34,27" fill="rgba(255,255,255,0.2)"/><polygon points="29,25 34,24.2 35,25 34,25.8" fill="rgba(255,255,255,0.2)"/><polygon points="41,25 36,24.2 35,25 36,25.8" fill="#2ec4b6" opacity="0.5"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/travel-mug-with-a-handle','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">Travel Mug</p><p class="p-price">$34.95</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/travel-mug-with-a-handle','_blank')">Shop Now</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="p-img" style="background:#111827;">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="32" rx="12" ry="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><ellipse cx="35" cy="44" rx="12" ry="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/><circle cx="35" cy="30" r="6" stroke="#2ec4b6" stroke-width="0.6" opacity="0.4"/><polygon points="35,24 36,28.5 35,30 34,28.5" fill="#c9993a" opacity="0.7"/><polygon points="35,36 36,31.5 35,30 34,31.5" fill="rgba(255,255,255,0.2)"/><polygon points="29,30 34,29.2 35,30 34,30.8" fill="rgba(255,255,255,0.2)"/><polygon points="41,30 36,29.2 35,30 36,30.8" fill="#2ec4b6" opacity="0.5"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/salte-logo-black-glossy-mug','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">SaltE Logo Mug</p><p class="p-price">$12.50</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/salte-logo-black-glossy-mug','_blank')">Shop Now</button></div>
+      </div>
+
+      <div class="product-card">
+        <div class="p-img" style="background:#1a1a2e;">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="22" y="16" width="26" height="38" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="35" cy="36" r="9" stroke="#c9993a" stroke-width="0.6" opacity="0.4"/><polygon points="35,27 36.2,33.5 35,36 33.8,33.5" fill="#c9993a" opacity="0.7"/><polygon points="35,45 36.2,38.5 35,36 33.8,38.5" fill="rgba(255,255,255,0.2)"/><polygon points="26,36 33.5,33.8 35,36 33.5,38.2" fill="rgba(255,255,255,0.2)"/><polygon points="44,36 36.5,33.8 35,36 36.5,38.2" fill="#2ec4b6" opacity="0.5"/></svg>
+          <div class="p-overlay"><button class="p-overlay-btn" onclick="window.open('https://www.saltebrand.com/product-page/livin-salte-decal','_blank')">View Product</button></div>
+        </div>
+        <div class="p-info"><p class="p-name">SaltE Decal</p><p class="p-price">$9.00</p><button class="p-quickadd" onclick="window.open('https://www.saltebrand.com/product-page/livin-salte-decal','_blank')">Shop Now</button></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATE SELECTOR -->
+<section class="states-section" id="states">
+  <div class="states-inner">
+    <div class="states-header">
+      <span class="section-label" style="display:block;text-align:center;margin-bottom:0.5rem;">The State Collection</span>
+      <h2 class="section-title" style="color:#fff;text-align:center;">Where are you from?</h2>
+    </div>
+    <p class="states-sub">All 14 East Coast states. Pre-designed and ready to ship, or build something custom.</p>
+    <div class="legend">
+      <div class="leg"><div class="leg-dot" style="background:var(--gold);"></div>Pre-designed &amp; ready to ship</div>
+      <div class="leg"><div class="leg-dot" style="background:rgba(255,255,255,0.2);"></div>Custom order available</div>
+    </div>
+    <div class="state-grid" id="stateGrid"></div>
+    <div class="state-result" id="stateResult"><div class="state-placeholder">Select your state above</div></div>
+    <p class="states-note">Printed on demand via Printful &nbsp;·&nbsp; Ships to all 50 states &nbsp;·&nbsp; Free shipping over $50</p>
+  </div>
+</section>
+
+<div id="email-placeholder"></div>
+<div id="footer-placeholder"></div>
+
+
+<script>
+  renderNav('wear');
+  renderTrust();
+  renderEmailBand();
+  renderFooter();
+
+  const states=[{abbr:'CT',name:'Connecticut'},{abbr:'DE',name:'Delaware'},{abbr:'FL',name:'Florida'},{abbr:'GA',name:'Georgia'},{abbr:'ME',name:'Maine'},{abbr:'MD',name:'Maryland'},{abbr:'MA',name:'Massachusetts'},{abbr:'NH',name:'New Hampshire'},{abbr:'NJ',name:'New Jersey'},{abbr:'NY',name:'New York'},{abbr:'NC',name:'North Carolina'},{abbr:'RI',name:'Rhode Island'},{abbr:'SC',name:'South Carolina'},{abbr:'VA',name:'Virginia'}];
+  const pre=['MA','FL'];
+  const grid=document.getElementById('stateGrid');
+  const result=document.getElementById('stateResult');
+
+  states.forEach(s=>{
+    const el=document.createElement('div');
+    const isPre=pre.includes(s.abbr);
+    el.className='sb'+(isPre?' is-pre':'');
+    el.innerHTML=`<span class="sb-a">${s.abbr}</span><span class="sb-n">${s.name.split(' ')[0]}</span>`;
+    el.onclick=()=>pick(s,el);
+    grid.appendChild(el);
+  });
+
+  function pick(s,el){
+    document.querySelectorAll('.sb').forEach(b=>b.classList.remove('active'));
+    el.classList.add('active');
+    const isPre=pre.includes(s.abbr);
+    result.innerHTML=`
+      <div class="sr-head">
+        <div class="sr-circle">${s.abbr}</div>
+        <div><div class="sr-title">SaltE ${s.name} Collection</div><div class="sr-sub">East Coast proud &nbsp;·&nbsp; Livin' SaltE</div></div>
+      </div>
+      <div class="state-options">
+        <div class="sop">
+          <span class="ob ob-g">${isPre?'Pre-Designed':'Coming Soon'}</span>
+          <div class="ot">Signature ${s.abbr} Tee</div>
+          <div class="od">${isPre?`The SaltE compass over the ${s.name} silhouette. Ready to ship.`:`The ${s.name} tee is in production. Be first in line.`}</div>
+          <div class="op">${isPre?'$24.95':'Notify me'} <span>${isPre?'/ ships 5–7 days':''}</span></div>
+          <button class="obtn obtn-g" onclick="window.open('https://www.saltebrand.com/shop-all','_blank')">${isPre?'Shop Now →':'Join Waitlist →'}</button>
+        </div>
+        <div class="sop">
+          <span class="ob ob-t">Custom Build</span>
+          <div class="ot">Build Your ${s.abbr} Gear</div>
+          <div class="od">Any product. Any size. We'll add the ${s.name} state design to it.</div>
+          <div class="op">From $24.95 <span>/ custom add-on</span></div>
+          <button class="obtn obtn-t" onclick="window.location.href='contact.html'">Start Custom Order →</button>
+        </div>
+      </div>`;
+  }
+</script>
+</body>
+</html>
