@@ -8,10 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{--navy:#0b1032;--navy-mid:#131a4a;--navy-light:#1a2460;--teal:#2ec4b6;--teal-dark:#1aa89c;--gold:#c9993a;--gold-light:#e8b84b;--sand:#f2ede3;--white:#fafcff;--grey:#8a96a8;}
+:root{--navy:#0d1f3c;--navy-mid:#131a4a;--navy-light:#1a2460;--teal:#2ec4b6;--teal-dark:#1aa89c;--gold:#c9993a;--gold-light:#e8b84b;--sand:#f2ede3;--white:#fafcff;--grey:#8a96a8;}
 html{scroll-behavior:smooth;}
 body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden;}
-nav{background:rgba(11,16,50,0.97);padding:0.9rem 2.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,153,58,0.15);position:sticky;top:0;z-index:100;}
+nav{background:rgba(13,31,60,0.97);padding:0.9rem 2.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,153,58,0.15);position:sticky;top:0;z-index:100;}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .nav-wordmark{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.1em;color:#fff;}
 .nav-wordmark span{color:var(--teal);}
@@ -56,7 +56,7 @@ nav{background:rgba(11,16,50,0.97);padding:0.9rem 2.5rem;display:flex;align-item
 .p-badge{position:absolute;top:10px;left:10px;font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
 .badge-best{background:var(--gold);color:var(--navy);}
 .badge-new{background:var(--teal);color:var(--navy);}
-.p-overlay{position:absolute;inset:0;background:rgba(11,16,50,0.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
+.p-overlay{position:absolute;inset:0;background:rgba(13,31,60,0.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
 .p-overlay-btn{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--gold);color:var(--navy);border:none;padding:0.55rem 1.2rem;border-radius:3px;cursor:pointer;}
 .p-info{padding:0.85rem 1rem;border-top:1px solid rgba(255,255,255,0.06);}
 .p-name{font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;font-weight:600;color:#fff;margin-bottom:2px;}
@@ -123,6 +123,21 @@ footer{background:#060b1e;padding:2.5rem 2rem;}
 </nav>
 
 <section class="hero">
+  <svg style="position:absolute;right:5%;top:50%;transform:translateY(-50%);width:480px;height:480px;opacity:0.08;pointer-events:none;" viewBox="0 0 400 400" fill="none">
+    <polygon points="200,10 210,190 200,200 190,190" fill="white"/>
+    <polygon points="200,390 210,210 200,200 190,210" fill="white"/>
+    <polygon points="10,200 190,190 200,200 190,210" fill="white"/>
+    <polygon points="390,200 210,190 200,200 210,210" fill="white"/>
+    <polygon points="65,65 194,194 200,200 188,194" fill="white"/>
+    <polygon points="335,65 206,194 200,200 212,194" fill="white"/>
+    <polygon points="65,335 194,206 200,200 188,206" fill="white"/>
+    <polygon points="335,335 206,206 200,200 212,206" fill="white"/>
+    <circle cx="200" cy="200" r="130" stroke="white" stroke-width="1.5" fill="none"/>
+    <circle cx="200" cy="200" r="90" stroke="white" stroke-width="0.75" fill="none"/>
+    <circle cx="200" cy="200" r="8" stroke="white" stroke-width="1.5" fill="none"/>
+    <text x="50" y="235" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="135" fill="none" stroke="white" stroke-width="1.2" opacity="0.7">Salt</text>
+    <text x="308" y="220" font-family="Georgia,serif" font-weight="700" font-size="72" fill="white" opacity="0.9">E</text>
+  </svg>
   <svg class="hero-bg" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="200" r="180" stroke="white" stroke-width="1"/><circle cx="200" cy="200" r="130" stroke="white" stroke-width="0.5"/><polygon points="200,20 208,192 200,200 192,192" fill="white"/><polygon points="200,380 208,208 200,200 192,208" fill="white" opacity="0.3"/><polygon points="20,200 192,192 200,200 192,208" fill="white" opacity="0.3"/><polygon points="380,200 208,192 200,200 208,208" fill="white"/><line x1="200" y1="20" x2="200" y2="380" stroke="white" stroke-width="0.4" opacity="0.2"/><line x1="20" y1="200" x2="380" y2="200" stroke="white" stroke-width="0.4" opacity="0.2"/><text x="192" y="14" fill="white" font-size="11" font-family="serif" opacity="0.4">N</text><text x="192" y="396" fill="white" font-size="11" font-family="serif" opacity="0.25">S</text><text x="4" y="204" fill="white" font-size="11" font-family="serif" opacity="0.25">W</text><text x="382" y="204" fill="white" font-size="13" font-family="serif" font-weight="bold" opacity="0.7">E</text></svg>
   <div class="hero-content">
     <p class="eyebrow"><span class="eyebrow-line"></span>East Coast Lifestyle Brand</p>
@@ -146,7 +161,7 @@ footer{background:#060b1e;padding:2.5rem 2rem;}
   <div class="products-grid">
     <div class="product-card"><div class="p-img" style="background:#0f1a3e;"><span class="p-badge badge-best">Bestseller</span><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="35" r="22" stroke="#2ec4b6" stroke-width="0.8" opacity="0.35"/><polygon points="35,13 37.5,32 35,35 32.5,32" fill="#c9993a" opacity="0.85"/><polygon points="35,57 37.5,38 35,35 32.5,38" fill="#8a96a8" opacity="0.3"/><polygon points="13,35 32,32.5 35,35 32,37.5" fill="#8a96a8" opacity="0.3"/><polygon points="57,35 38,32.5 35,35 38,37.5" fill="#2ec4b6" opacity="0.6"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/white-short-sleeve-t-shirt'">Quick View</button></div></div><div class="p-info"><p class="p-name">Signature T-Shirt</p><p class="p-price">$24.95</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/white-short-sleeve-t-shirt'">Shop Now</button></div></div>
     <div class="product-card"><div class="p-img" style="background:#0c1830;"><span class="p-badge badge-new">New</span><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="15" y="22" width="40" height="30" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="35" cy="37" r="10" stroke="#c9993a" stroke-width="0.7" opacity="0.45"/><polygon points="35,27 36.5,34 35,37 33.5,34" fill="#c9993a" opacity="0.7"/><polygon points="35,47 36.5,40 35,37 33.5,40" fill="rgba(255,255,255,0.2)"/><polygon points="25,37 33.5,34.5 35,37 33.5,39.5" fill="rgba(255,255,255,0.2)"/><polygon points="45,37 36.5,34.5 35,37 36.5,39.5" fill="#2ec4b6" opacity="0.5"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/salte-jacket'">Quick View</button></div></div><div class="p-info"><p class="p-name">SaltE Jacket</p><p class="p-price">$69.00</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/salte-jacket'">Shop Now</button></div></div>
-    <div class="product-card"><div class="p-img" style="background:#f0ebe0;"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="30" rx="18" ry="9" fill="rgba(11,16,50,0.06)" stroke="rgba(11,16,50,0.1)" stroke-width="0.5"/><rect x="17" y="30" width="36" height="6" rx="1" fill="rgba(11,16,50,0.05)"/><circle cx="35" cy="28" r="7" stroke="#0b1032" stroke-width="0.6" opacity="0.18"/><polygon points="35,21 36,26 35,28 34,26" fill="#c9993a" opacity="0.55"/><polygon points="42,28 36,27.2 35,28 36,28.8" fill="#0b1032" opacity="0.22"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/trucker-cap'">Quick View</button></div></div><div class="p-info"><p class="p-name">Trucker Cap</p><p class="p-price">$28.00</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/trucker-cap'">Shop Now</button></div></div>
+    <div class="product-card"><div class="p-img" style="background:#f0ebe0;"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="30" rx="18" ry="9" fill="rgba(13,31,60,0.06)" stroke="rgba(13,31,60,0.1)" stroke-width="0.5"/><rect x="17" y="30" width="36" height="6" rx="1" fill="rgba(13,31,60,0.05)"/><circle cx="35" cy="28" r="7" stroke="#0d1f3c" stroke-width="0.6" opacity="0.18"/><polygon points="35,21 36,26 35,28 34,26" fill="#c9993a" opacity="0.55"/><polygon points="42,28 36,27.2 35,28 36,28.8" fill="#0d1f3c" opacity="0.22"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/trucker-cap'">Quick View</button></div></div><div class="p-info"><p class="p-name">Trucker Cap</p><p class="p-price">$28.00</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/trucker-cap'">Shop Now</button></div></div>
     <div class="product-card"><div class="p-img" style="background:#1a4060;"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><ellipse cx="35" cy="26" rx="14" ry="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/><rect x="21" y="39" width="28" height="8" rx="4" fill="rgba(255,255,255,0.05)"/><circle cx="35" cy="25" r="6" stroke="#c9993a" stroke-width="0.6" opacity="0.4"/><polygon points="35,19 36,23 35,25 34,23" fill="#c9993a" opacity="0.7"/><polygon points="41,25 36,24.2 35,25 36,25.8" fill="#2ec4b6" opacity="0.5"/></svg><div class="p-overlay"><button class="p-overlay-btn" onclick="window.location.href='https://www.saltebrand.com/product-page/travel-mug-with-a-handle'">Quick View</button></div></div><div class="p-info"><p class="p-name">Travel Mug</p><p class="p-price">$34.95</p><button class="p-quickadd" onclick="window.location.href='https://www.saltebrand.com/product-page/travel-mug-with-a-handle'">Shop Now</button></div></div>
   </div>
 </section>
